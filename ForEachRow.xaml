@@ -1,0 +1,300 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="ForEachRow" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="dataTable" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="image" Type="InOutArgument(x:String)" />
+    <x:Property Name="elementExist" Type="InOutArgument(x:Boolean)" />
+  </x:Members>
+  <sap:VirtualizedContainerService.HintSize>636,2774.4</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="32">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="16">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="616,2714.4" sap2010:WorkflowViewState.IdRef="Sequence_10">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[dataTable]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="574.4,2621.6" sap2010:WorkflowViewState.IdRef="ForEachRow_4">
+      <ui:ForEachRow.Body>
+        <ActivityAction x:TypeArguments="sd:DataRow">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="524.8,2472.8" sap2010:WorkflowViewState.IdRef="Sequence_18">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" AlterIfDisabled="True" DisplayName="Type Into 'INPUT  ctl00_ContentPla...'" EmptyField="True" sap:VirtualizedContainerService.HintSize="483.2,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_10" SimulateType="True" Text="[row(&quot;Roll Number&quot;).ToString]">
+              <ui:TypeInto.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="53530b84d1d39ebec8997c520ebe388e" Selector="&lt;html app='chrome.exe' title='Result' /&gt;&lt;webctrl id='ctl00_ContentPlaceHolder1_txtrollno' tag='INPUT' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:TypeInto.Target>
+            </ui:TypeInto>
+            <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Item 'SELECT  ctl00_ContentPl...'" sap:VirtualizedContainerService.HintSize="483.2,135.2" sap2010:WorkflowViewState.IdRef="SelectItem_3" Item="5">
+              <ui:SelectItem.Items>
+                <scg:List x:TypeArguments="x:String" Capacity="8">
+                  <x:String>1</x:String>
+                  <x:String>2</x:String>
+                  <x:String>3</x:String>
+                  <x:String>4</x:String>
+                  <x:String>5</x:String>
+                  <x:String>6</x:String>
+                  <x:String>7</x:String>
+                  <x:String>8</x:String>
+                </scg:List>
+              </ui:SelectItem.Items>
+              <ui:SelectItem.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="dfb5366999186b487045d72507fbadb0" Selector="&lt;html app='chrome.exe' title='Result' /&gt;&lt;webctrl tag='SELECT' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:SelectItem.Target>
+            </ui:SelectItem>
+            <ui:GetOCRText WordsInfo="{x:Null}" DisplayName="Get OCR Text 'IMG'" sap:VirtualizedContainerService.HintSize="483.2,169.6" sap2010:WorkflowViewState.IdRef="GetOCRText_5">
+              <ui:GetOCRText.OCREngine>
+                <ActivityFunc x:TypeArguments="sd1:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+                  <ActivityFunc.Argument>
+                    <DelegateInArgument x:TypeArguments="sd1:Image" Name="Image" />
+                  </ActivityFunc.Argument>
+                  <ui:GoogleOCR AllowedCharacters="{x:Null}" DeniedCharacters="{x:Null}" FilterRegion="{x:Null}" Invert="{x:Null}" Language="{x:Null}" Output="{x:Null}" Profile="{x:Null}" Scale="{x:Null}" Text="{x:Null}" ComputeSkewAngle="False" DisplayName="Tesseract OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="GoogleOCR_5" Image="[Image]" />
+                </ActivityFunc>
+              </ui:GetOCRText.OCREngine>
+              <ui:GetOCRText.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="38c086d1eb4488c84d9de74d9b371e4c" Selector="&lt;html app='chrome.exe' title='Result' idx='2' /&gt;&lt;webctrl parentid='ctl00_ContentPlaceHolder1_pnlCaptcha' tag='IMG' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:GetOCRText.Target>
+              <ui:GetOCRText.Text>
+                <OutArgument x:TypeArguments="x:String">[image]</OutArgument>
+              </ui:GetOCRText.Text>
+            </ui:GetOCRText>
+            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Type Into 'INPUT  ctl00_ContentPla...'" EmptyField="True" sap:VirtualizedContainerService.HintSize="483.2,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_7" SimulateType="True" Text="[image]">
+              <ui:TypeInto.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="6c692de4132bf2beec0f0ce72fbadfa7" Selector="&lt;html app='chrome.exe' title='Result' idx='2' /&gt;&lt;webctrl idx='89' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:TypeInto.Target>
+            </ui:TypeInto>
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'INPUT  ctl00_ContentPla...'" sap:VirtualizedContainerService.HintSize="483.2,107.2" sap2010:WorkflowViewState.IdRef="Click_7" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="28bf97a08c7b490af5185c81c0ae6f7f" Selector="&lt;html app='chrome.exe' title='Result' idx='2' /&gt;&lt;webctrl id='ctl00_ContentPlaceHolder1_btnviewresult' tag='INPUT' /&gt;" TimeoutMS="3000">
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:Click.Target>
+            </ui:Click>
+            <ui:ImageFound DisplayName="Image Exists 'chrome.exe Result'" Found="[elementExist]" sap:VirtualizedContainerService.HintSize="483.2,107.2" sap2010:WorkflowViewState.IdRef="ImageFound_1">
+              <ui:ImageFound.Image>
+                <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" InitialScalingFactor="1.25" Profile="Basic" TargetImageBase64="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" />
+              </ui:ImageFound.Image>
+              <ui:ImageFound.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='Result - Google Chrome' /&gt;" TimeoutMS="2000">
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:ImageFound.Target>
+            </ui:ImageFound>
+            <While sap:VirtualizedContainerService.HintSize="483.2,1100.8" sap2010:WorkflowViewState.IdRef="While_2">
+              <While.Condition>
+                <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="elementExist" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1" />
+              </While.Condition>
+              <Sequence sap:VirtualizedContainerService.HintSize="375.2,941.6" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                <Sequence.Variables>
+                  <Variable x:TypeArguments="x:String" Name="image1" />
+                </Sequence.Variables>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click 'push button  OK'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="Click_8" KeyModifiers="None" MouseButton="BTN_LEFT">
+                  <ui:Click.CursorPosition>
+                    <ui:CursorPosition Position="Center">
+                      <ui:CursorPosition.OffsetX>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetX>
+                      <ui:CursorPosition.OffsetY>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetY>
+                    </ui:CursorPosition>
+                  </ui:Click.CursorPosition>
+                  <ui:Click.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="2febfd63da7135482e2f13889bec2455" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='Result - Google Chrome' /&gt;&lt;ctrl name='OK' role='push button' /&gt;">
+                      <ui:Target.TimeoutMS>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:Target.TimeoutMS>
+                      <ui:Target.WaitForReady>
+                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                      </ui:Target.WaitForReady>
+                    </ui:Target>
+                  </ui:Click.Target>
+                </ui:Click>
+                <ui:GetOCRText WordsInfo="{x:Null}" DisplayName="Get OCR Text 'IMG'" sap:VirtualizedContainerService.HintSize="333.6,169.6" sap2010:WorkflowViewState.IdRef="GetOCRText_6">
+                  <ui:GetOCRText.OCREngine>
+                    <ActivityFunc x:TypeArguments="sd1:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+                      <ActivityFunc.Argument>
+                        <DelegateInArgument x:TypeArguments="sd1:Image" Name="Image" />
+                      </ActivityFunc.Argument>
+                      <ui:GoogleOCR AllowedCharacters="{x:Null}" DeniedCharacters="{x:Null}" FilterRegion="{x:Null}" Invert="{x:Null}" Language="{x:Null}" Output="{x:Null}" Profile="{x:Null}" Scale="{x:Null}" Text="{x:Null}" ComputeSkewAngle="False" DisplayName="Tesseract OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="GoogleOCR_6" Image="[Image]" />
+                    </ActivityFunc>
+                  </ui:GetOCRText.OCREngine>
+                  <ui:GetOCRText.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="a7e12b7f68a884d313a88942791400d5" Selector="&lt;html app='chrome.exe' title='Result' idx='2' /&gt;&lt;webctrl parentid='ctl00_ContentPlaceHolder1_pnlCaptcha' tag='IMG' /&gt;">
+                      <ui:Target.TimeoutMS>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:Target.TimeoutMS>
+                      <ui:Target.WaitForReady>
+                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                      </ui:Target.WaitForReady>
+                    </ui:Target>
+                  </ui:GetOCRText.Target>
+                  <ui:GetOCRText.Text>
+                    <OutArgument x:TypeArguments="x:String">[image1]</OutArgument>
+                  </ui:GetOCRText.Text>
+                </ui:GetOCRText>
+                <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" AlterIfDisabled="True" DisplayName="Type Into 'INPUT  ctl00_ContentPla...'" EmptyField="True" sap:VirtualizedContainerService.HintSize="333.6,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_8" SimulateType="True" Text="[image1]">
+                  <ui:TypeInto.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="6f3e77cbcc668d9373ffa8e9eb6b748e" Selector="&lt;html app='chrome.exe' title='Result' idx='2' /&gt;&lt;webctrl id='ctl00_ContentPlaceHolder1_TextBox1' tag='INPUT' /&gt;">
+                      <ui:Target.TimeoutMS>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:Target.TimeoutMS>
+                      <ui:Target.WaitForReady>
+                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                      </ui:Target.WaitForReady>
+                    </ui:Target>
+                  </ui:TypeInto.Target>
+                </ui:TypeInto>
+                <Delay Duration="00:00:03" sap:VirtualizedContainerService.HintSize="333.6,22.4" sap2010:WorkflowViewState.IdRef="Delay_1" />
+                <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click 'INPUT  ctl00_ContentPla...'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="Click_10" KeyModifiers="None" MouseButton="BTN_LEFT">
+                  <ui:Click.CursorPosition>
+                    <ui:CursorPosition Position="Center">
+                      <ui:CursorPosition.OffsetX>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetX>
+                      <ui:CursorPosition.OffsetY>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetY>
+                    </ui:CursorPosition>
+                  </ui:Click.CursorPosition>
+                  <ui:Click.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="28bf97a08c7b490af5185c81c0ae6f7f" Selector="&lt;html app='chrome.exe' title='Result' idx='2' /&gt;&lt;webctrl id='ctl00_ContentPlaceHolder1_btnviewresult' tag='INPUT' /&gt;" WaitForReady="COMPLETE">
+                      <ui:Target.TimeoutMS>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:Target.TimeoutMS>
+                    </ui:Target>
+                  </ui:Click.Target>
+                </ui:Click>
+                <ui:ImageFound DisplayName="Image Exists 'chrome.exe Result'" Found="[elementExist]" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="ImageFound_2">
+                  <ui:ImageFound.Image>
+                    <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" InitialScalingFactor="1.25" Profile="Basic" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAAE4AAAAgCAYAAAC8VE43AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAHDSURBVGhD7ZfBSsNAEIZ9LW99iz6Az9BXUBA89VIfwEt7K0hPgYIXxUMOpR48CDkUEdKYktCQJs3vbjbbNEkRncOuwgQ+6O5mCvsxOzs5O7/00btmfguLI8LiiLA4IiyOCIsjwuKIsDgiLI4IiyNiTVx/usWTv0cK/RSI/BSTadB4b+bLtRyzw1yAobcvI1I/weDoXZNYEdd3dliXWweiMIfnC0IlA9jDdWp5bXEyNpJTyQ7DUfN/TWJBXAw3kTsXguafjbWL+ZGUaq4hbpzAy8QwE+NxHWcD8+Ke5c7FMVvFJ9YDTD4KsVpg+ajmanEbOKH83cxIWxgXd1PWp1pMh0Uu7eD9NSzHWpxb1bX1W9SNsYBxcaqwy6w5vd6raljkqYxU4vSTw7F8RDWWxP0g417UcdQZ9yDmyxv4qP7Z5I/WuDoj6xoX4G4l11Q29juxZjEvbrTFsnT3za0ap7iq5mpxMlbfyAW8xaYRaxrz4gSHXkw8hz4uVtnUbjUa4iT3adUD2r1drYiTyC8HVzS97S+H21bx74gTDHS9yzJMLDXB1sT9d1gcERZHhMURYXFEWBwRFkeExRFhcURYHBEWR8LHFwgO7XyDGGx2AAAAAElFTkSuQmCC" />
+                  </ui:ImageFound.Image>
+                  <ui:ImageFound.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='Result - Google Chrome' /&gt;&lt;ctrl name='OK' role='push button' /&gt;" TimeoutMS="2000">
+                      <ui:Target.WaitForReady>
+                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                      </ui:Target.WaitForReady>
+                    </ui:Target>
+                  </ui:ImageFound.Target>
+                </ui:ImageFound>
+              </Sequence>
+            </While>
+            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="483.2,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="Result opened" />
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'INPUT  ctl00_ContentPla...'" sap:VirtualizedContainerService.HintSize="483.2,107.2" sap2010:WorkflowViewState.IdRef="Click_14" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="a19670cd48683c92f0ce5b17c3b4adc6" Selector="&lt;html app='chrome.exe' title='Result' /&gt;&lt;webctrl id='ctl00_ContentPlaceHolder1_btnReset' tag='INPUT' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:Click.Target>
+            </ui:Click>
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEachRow.Body>
+    </ui:ForEachRow>
+  </Sequence>
+</Activity>
